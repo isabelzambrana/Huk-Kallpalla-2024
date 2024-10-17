@@ -1,0 +1,84 @@
+#footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #f0f0f0; /* Fondo gris suave */
+  padding: 20px;
+  font-family: 'Poppins', sans-serif; /* Tipografía moderna y legible */
+  color: #333; /* Color de texto oscuro */
+}
+
+#map {
+  margin-bottom: 20px;
+}
+
+#social-media {
+  margin-bottom: 20px;
+}
+
+#social-media > a {
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 24px;
+  color: #5e6e00; /* Verde oscuro */
+  transition: color 0.3s;
+}
+
+#social-media a:hover {
+  color: #8db600; /* Verde vibrante al pasar el mouse */
+}
+
+#menu-summary, #hours {
+  margin: 10px 0;
+}
+
+#menu-summary > ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#menu-summary > ul > li {
+  margin: 5px 0;
+}
+
+#menu-summary > ul > li > a {
+  text-decoration: none;
+  color: #5e6e00; /* Verde oscuro */
+  transition: color 0.3s;
+}
+
+#menu-summary > ul > li > a:hover {
+  color: #8db600; /* Verde vibrante al pasar el mouse */
+}
+
+#hours > p {
+  margin: 5px 0;
+  color: #777; /* Gris claro para horarios */
+}
+
+/* Estilo adicional para mejorar el aspecto */
+#footer-container > h2 {
+  font-size: 1.5rem; /* Tamaño de título */
+  margin-bottom: 15px; /* Espacio inferior */
+  color: #d9e021; /* Color verde para encabezados */
+}
+
+#footer-container > p {
+  margin: 5px 0;
+}
+
+/* Responsividad */
+@media (min-width: 768px) {
+  #footer-container {
+    flex-direction: row;
+    justify-content: space-between; /* Espacio entre elementos */
+    text-align: left;
+    padding: 40px; /* Mayor padding en pantallas grandes */
+  }
+
+  #map, #social-media, #menu-summary, #hours {
+    flex: 1;
+    margin: 0 20px;
+  }
+}

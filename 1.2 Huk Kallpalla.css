@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: auto; /* Evita el scroll */
+}
+
+#inicio {
+  height: 100vh;
+  background-image: url("imgen/fondo1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#contenedor-textos {
+  display: flex;
+  color: rgb(255, 255, 255);
+  font-weight: 600; 
+  padding: 20px;
+  align-items: center;
+  flex-direction: column;
+  text-align: center; /* Alinear texto al centro */
+  animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+#contenedor-textos > h1 {
+  font-size: 7vh;
+}
+
+#contenedor-textos > p {
+  font-size: 4vh;
+  margin-top: 10px; /* Espacio entre el título y el párrafo */
+}
+
+#contenedor-registro {
+  height: 50px; 
+  padding: 10px;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.62);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transform: scale(1);
+}
+
+#contenedor-registro:hover {
+  box-shadow: 0 0 25px #ffffff;
+  transform: scale(1.05);
+}
+
+#contenedor-registro > a {
+  font-weight: bold;
+  font-size: 1.6rem; 
+  color: rgb(255, 255, 255);
+}
+
+#contenedor-registro > a:hover {
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+}
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 768px) {
+  #contenedor-textos > h1 {
+    font-size: 6vh; 
+  }
+  
+  #contenedor-textos > p {
+    font-size: 3.5vh; 
+  }
+  
+  #contenedor-registro {
+    min-width: 120px; 
+    height: 45px; 
+  }
+
+  #contenedor-registro > a {
+    font-size: 1.4rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  #contenedor-textos > h1 {
+    font-size: 5vh; 
+  }
+  
+  #contenedor-textos > p {
+    font-size: 3vh; 
+  }
+
+  #contenedor-registro {
+    min-width: 100px; 
+    height: 40px; 
+  }
+
+  #contenedor-registro > a {
+    font-size: 1.2rem; 
+  }
+}

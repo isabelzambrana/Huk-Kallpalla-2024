@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+}
+
+#inicio {
+  background-image: url("fondo1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajustado para ocupar toda la altura de la pantalla */
+}
+
+#contenedor-textos {
+  display: flex;
+  flex-direction: column; /* Cambiado a columna para mejor alineación */
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  padding: 20px;
+  align-items: center; /* Centra los elementos hijos */
+}
+
+#titulo {
+  font-size: 7vh;
+  margin: 15px;
+}
+
+#saludo {
+  font-size: 4vh;
+}

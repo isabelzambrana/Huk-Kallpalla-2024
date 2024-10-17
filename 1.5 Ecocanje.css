@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: auto; /* Evita el scroll */
+}
+
+#inicio {
+  height: 100vh;
+  background-image: url("imgn/fondo1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#textos {
+  display: flex;
+  color: rgb(255, 255, 255);
+  font-weight: 600; 
+  padding: 20px;
+  align-items: center;
+  flex-direction: column;
+  text-align: center; /* Alinear texto al centro */
+  animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+#titulo-inicio {
+  font-size: 7vh;
+  margin-bottom: 10px; /* Espaciado entre el título y la descripción */
+}
+
+#descripcion {
+  font-size: 4vh;
+}
+
+#registro {
+  height: 50px; 
+  padding: 10px;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.62);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#registro:hover {
+  box-shadow: 0 0 25px #ffffff;
+  transform: scale(1.05);
+}
+
+#enlace-registro {
+  font-weight: bold;
+  font-size: 1.6rem; 
+  color: rgb(255, 255, 255);
+  transition: 0.3s;
+}
+
+#enlace-registro:hover {
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+}
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 768px) {
+  #titulo-inicio {
+    font-size: 6vh; /* Ajustar tamaño del título en pantallas pequeñas */
+  }
+  
+  #descripcion {
+    font-size: 3.5vh; /* Ajustar tamaño del párrafo */
+  }
+  
+  #registro {
+    min-width: 120px; /* Ajustar el botón */
+    height: 45px; 
+  }
+
+  #enlace-registro {
+    font-size: 1.4rem; /* Ajustar tamaño de fuente del enlace */
+  }
+}
+
+@media (max-width: 480px) {
+  #titulo-inicio {
+    font-size: 5vh; /* Ajustar tamaño del título en pantallas muy pequeñas */
+  }
+  
+  #descripcion {
+    font-size: 3vh; /* Ajustar tamaño del párrafo */
+  }
+
+  #registro {
+    min-width: 100px; /* Ajustar el botón */
+    height: 40px; 
+  }
+
+  #enlace-registro {
+    font-size: 1.2rem; /* Ajustar tamaño de fuente del enlace */
+  }
+}
