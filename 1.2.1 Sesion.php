@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="1.2.1 Sesion.css">
+
+    <script src="https://kit.fontawesome.com/a2dd6045c4.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <title>Sesion</title>
 </head>
 <style>
@@ -83,6 +86,18 @@
   height: 60px;
   border-bottom: 2px solid #ffffff;
   margin: 30px 0;
+}
+#usrname-error.error{
+  color: #778c43;
+padding-top:100px;
+}
+#correo_usuario-error.error{
+  color: #778c43;
+padding-top:90px;
+}
+#contrasenia_usuario-error.error{
+  color: #778c43;
+padding-top:100px;
 }
 
 #contenedor-input label {
@@ -251,15 +266,47 @@
         </div>
         <button type="submit" class="btn">Iniciar Sesión</button>
         <div id="registrar">
-          <p>¿No tienes cuenta? <a href="1.1.1 Registrarusr.php" class="registrar-link">Registrarse</a></p>
+          <p>¿No tienes cuenta? <a href="1.2 Registrarusr.php" class="registrar-link">Registrarse</a></p>
         </div>
       </form>
     </div>
-
-
+    <script>
+       $("form").validarus({
+  rules:{
+    usrname:{
+          required:true,
+          minlength:5,
+          maxlength:25
+      },
+      correo_usuario:{
+          required:true,
+          email: true
+      },
+      contrasenia_usuario:{
+          required:true
+      }
+  },
+  messages:{
+    usrname:{
+      required:"este campo tiene que ser llenado",
+      minlength:"el minimo de letras es 5",
+      maxlength:"el maximo de letras es 25"
+  },
+  correo_usuario:{
+      required:"este campo tiene que ser llenado",
+      email:"El campo es obligatorio y debe tener formato de email correcto."
+  },
+  contrasenia_usuario:{
+      required:"este campo tiene que ser llenado"
+  }
+  }
+ }
+ )
+      </script>
 </section>
 <?php
     require "1.6 pie de pagina.php";
 ?>
 </body>
 </html>
+

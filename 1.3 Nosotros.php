@@ -22,7 +22,7 @@
 }
 
     #historia {
-        background-image: url("fondo2.png");
+        background-image: url("imgen/fondo2.png");
         background-size: cover;
         padding: 60px 20px;
         color: white;
@@ -355,10 +355,10 @@
         <h1 id="titulitos">Ambientes</h1>
         <div id="container">
             <div id="image-grid">
-                <div id="image-item"><img src="am1.png" alt="Seamos Verdes"></div>
-                <div id="image-item"><img src="am2.JPG" alt="Grupo con plantas"></div>
-                <div id="image-item"><img src="am3.JPG" alt="Kallpalla compostaje"></div>
-                <div id="image-item"><img src="am4.jpeg" alt="Hablemos de basura"></div>
+                <div id="image-item"><img src="imgen/am1.png" alt="Seamos Verdes"></div>
+                <div id="image-item"><img src="imgen/am2.JPG" alt="Grupo con plantas"></div>
+                <div id="image-item"><img src="imgen/am3.JPG" alt="Kallpalla compostaje"></div>
+                <div id="image-item"><img src="imgen/am4.jpeg" alt="Hablemos de basura"></div>
             </div>
         </div>
     </section>

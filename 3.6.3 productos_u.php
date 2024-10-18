@@ -3,7 +3,69 @@
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <link rel="stylesheet" href="3.6.3 productos_u.css">
+    <style>
+        #formproductos {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin: 0 auto;
+}
+#formulario{
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.boton-agregar {
+    background-color: #68ca41;
+    text-align: center;
+    color: white;
+    border: none;
+    font-size: 2vh;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    outline: none;
+}
+.boton-agregar:hover {
+    background-color: #003634; 
+    transform: translateY(-3px);
+}
+.boton-agregar:active {
+    transform: translateY(2px);
+} 
+.boton-agregar a {
+    color: white;
+    text-decoration: none;
+
+}
+ 
+    </style>
     <body id="formproductos">       
         <?php
 

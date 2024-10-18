@@ -12,7 +12,11 @@
 #map {
   margin-bottom: 20px;
 }
-
+#rs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #social-media {
   margin-bottom: 20px;
 }
@@ -28,7 +32,6 @@
 #social-media a:hover {
   color: #8db600; /* Verde vibrante al pasar el mouse */
 }
-
 #menu-summary, #hours {
   margin: 10px 0;
 }
@@ -67,13 +70,66 @@
 #footer-container > p {
   margin: 5px 0;
 }
+#comentario {
+  background-color: #ffffff; /* Fondo claro */
+  border: 3px solid #1b5c01; /* Borde suave */
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 4px; /* Espacio interno */
+  margin: 1px auto; /* Margen automático para centrar */
+  max-width: 330px; /* Ancho máximo del formuslario */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: solid;
+
+}
+
+h1 {
+  color: #333333; /* Color del título */
+  font-size: 20px; /* Tamaño del texto */
+  margin-bottom: 10px; /* Espacio debajo del título */
+  text-align: center; /* Centrar el texto */
+}
+
+label {
+  display: block; /* Hacer el label un bloque */
+  margin-bottom: 1px; /* Espacio debajo del label */
+  font-weight: bold; /* Negrita para el label */
+}
+
+textarea {
+  width: 98%; /* Ancho completo */
+  -ms-flex-align: center;
+  padding: 1px; /* Espacio interno */
+  border: 1px solid #ccc; /* Borde suave */
+  border-radius: 8px; /* Bordes redondeados */
+  resize: none; /* Desactivar redimensionar */
+  margin-bottom: 1px; /* Espacio debajo del textarea */
+  font-size: 14px; /* Tamaño de texto */
+}
+
+input[type="submit"], input[type="reset"] {
+  background-color: #015e01; /* Color de fondo verde */
+  color: white; /* Color de texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 10px 15px; /* Espacio interno */
+  cursor: pointer; /* Cursor de mano */
+  font-size: 14px; /* Tamaño de texto */
+  margin: 5px; /* Margen entre botones */
+  transition: background-color 0.3s; /* Transición suave */
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+  background-color: #218838; /* Color más oscuro al pasar el ratón */
+}
 
 /* Responsividad */
 @media (min-width: 768px) {
   #footer-container {
     flex-direction: row;
     justify-content: space-between; /* Espacio entre elementos */
-    text-align: left;
+    text-align: center;
     padding: 40px; /* Mayor padding en pantallas grandes */
   }
 

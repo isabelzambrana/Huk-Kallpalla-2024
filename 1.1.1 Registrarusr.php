@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a2dd6045c4.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <title>Registrarme</title>
 </head>
 <style>
@@ -75,6 +77,50 @@
   height: 60px;
   border-bottom: 2px solid #ffffff;
   margin: 30px 0;
+}
+#ci-error.error{
+  color: #778c43;
+padding-top:100px;
+}
+#direccion-error.error{
+  color: #778c43;
+padding-top:100px;
+}
+#telefono-error.error{
+  color: #778c43;
+padding-top:92px;
+}
+#nombres-error.error{
+  color: #778c43;
+padding-top:92px;
+}
+#ap_p-error.error{
+  color: #778c43;
+padding-top:92px;
+}
+#ap_m-error.error{
+  color: #778c43;
+padding-top:92px;
+}
+#usrname-error.error{
+  color: #778c43;
+padding-top:92px;
+}
+#fecha_n-error.error{
+  color: #778c43;
+padding-top:92px;
+}
+#correo_usuario-error.error{
+  color: #778c43;
+padding-top:92px;
+}
+#contrasenia_usuario-error.error{
+  color: #778c43;
+padding-top:92px;
+}
+#confirmacion-error.error{
+  color: #778c43;
+padding-top:92px;
 }
 
 #contenedor-input label {
@@ -169,7 +215,7 @@
   text-underline-offset: 4px;
 }
 
-/* Media Queries */
+
 @media (max-width: 768px) {
   #fondo {
     width: 90%;
@@ -219,19 +265,22 @@
 ?>
 <section id="ingreso">
   <div id="fondo">
-<!--Form registrarse-->
+
 <div id="contenedor-form" class="registrar"> 
   <h2>Registrarse</h2>
-  <form  method="POST" action="1.1.2 Registrarusr.php">
+  <div id="registrar">
+      <p>¿Tienes una cuenta? <a href="1.2.1 Sesion.php" class="login-link">Iniciar Sesión</a></p> 
+    </div>
+  <form  method="POST" action="1.2.1 Registrarusr.php">
   <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-user"></i></span>
       <input type="text" required name="ci">
-      <label for="username">Carnet de Identidad</label>
+      <label for="number">Carnet de Identidad</label>
     </div>
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-user"></i></span>
-      <input type="text" required name="nombres">
-      <label for="username">Nombre(s)</label>
+      <input type="text" required name="nombres" >
+      <label for="nombres">Nombre(s)</label>
     </div>
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-user"></i></span>
@@ -245,12 +294,12 @@
     </div>  
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-user"></i></span>
-      <input type="text" required name="usrname"><!--el required name es el nombre con el que se identifica dentro de la plataforma.-->
+      <input type="text" required name="usrname">
       <label for="username">Nombre de usuario</label>
     </div>
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-phone"></i></span>
-      <input type="tel" required name="telefono" pattern="[0-9]*"><!--el  pattern="[0-9]* es para validar que sea un numero q no pase de los 9 digitos-->
+      <input type="text" required name="telefono" pattern="[0-9]">
       <label for="number">Teléfono</label> 
     </div>  
     <div id="contenedor-input">
@@ -262,12 +311,12 @@
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-location-pin"></i></span>
       <input type="text" required name="direccion">
-      <label for="text">Dirección</label> 
+      <label for="direccion">Dirección</label> 
     </div>   
     <div id="contenedor-input">
     <span class="icono"><i class="fa-solid fa-calendar"></i></span>
     <input type="date" required name="fecha_n">
-    <label for="fecha_n">Fecha de Nacimiento</label>
+    <label for="fecha_n"></label>
     </div>
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-lock"></i></span>
@@ -283,9 +332,7 @@
       <label for="#"><input type="checkbox">Acepto los Términos y Condiciones</label>
     </div>
     <button type="submit" class="btn">Registrarme</button>
-    <div id="registrar">
-      <p>¿Tienes una cuenta? <a href="1.2.1 Sesion.php" class="login-link">Iniciar Sesión</a></p> 
-    </div>
+  
     <br><br>
   </form>
 </div>
@@ -306,6 +353,93 @@
         document.getElementById("form_usuario").submit();
     }
 }
+
+        $("form").validate({
+  rules:{
+      ci:{
+          required:true,
+          number:true,
+          maxlength:8
+      },
+      direccion:{
+          required:true,
+          minlength:5,
+          maxlength:20
+      },
+      telefono:{
+          required:true,
+          number: true,
+          maxlength:10
+      },
+      nombres:{
+          required:true
+      },
+      ap_p:{
+          required:true
+      },
+      ap_m:{
+          required:true
+      },
+      usrname:{
+          required:true,
+      },
+      fecha_n:{
+          required:true,
+          number:true
+      },
+      correo_usuario:{
+          required:true
+      },
+      contrasenia_usuario:{
+          required:true
+      },
+      confirmacion:{
+          required:true
+      }
+  },
+  messages:{
+  ci:{
+      required:"este campo no puede estar vacio.",
+      number:"Ingrese su CI como un valor numérico",
+      maxlength:"el maximo de numéros es 8."
+  },
+  direccion:{
+      required:"este campo no puede estar vacio.",
+      minlength:"el mínimo de letras es 5.",
+      maxlength:"el maximo de letras es 20."
+  },
+  telefono:{
+      required:"este campo no puede estar vacio.",
+      number:"Ingrese su telefono como un valor numérico",
+      maxlength:"el maximo de números es 10."
+  },
+  nombres:{
+      required:"este campo no puede estar vacio."
+  },
+  ap_p:{
+      required:"este campo no puede estar vacio."
+  },
+  ap_m:{
+      required:"este campo no puede estar vacio."
+  },
+  usrname:{
+      required:"este campo no puede estar vacio."
+  },
+  
+  contrasenia_usuario:{
+      required:"este campo no puede estar vacio."
+      },
+  correo_usuario:{
+      required:"este campo no puede estar vacio."
+  },
+  confirmacion:{
+      required:"este campo no puede estar vacio."
+  }
+  } 
+ }
+ )
+
+ 
 </script>
 </section>
 <?php 

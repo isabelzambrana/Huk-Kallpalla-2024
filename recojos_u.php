@@ -13,9 +13,9 @@ echo"<h2>Actualizar un recojo</h2><br><br>";
          include('db.php');
 
         $idModificar= $_GET['id'];
-        $consulta = "SELECT *FROM recojo WHERE idrecojo=$idModificar;";
+        $consulta = "SELECT * FROM recojo WHERE idrecojo = '$idModificar';";
         $resultado_consulta =mysqli_query($conexion,$consulta);
-        $registro = mysqli_fetch_array ($resultado_consulta);
+        $registro = mysqli_fetch_assoc ($resultado_consulta);
         
         ?>
          <form method="POST"> 
@@ -31,8 +31,8 @@ echo"<h2>Actualizar un recojo</h2><br><br>";
         $fecha = $_POST['fecha'];
         $cantidad = $_POST['cant'];
         $idEditar=$_POST['id'];
-        
-        $consulta02 = "UPDATE recojo SET fecha='$fecha',cantidad='$cantidad' WHERE idrecojo= $idEditar;";
+        $_POST['id'] = $idEditar;
+        $consulta02 = "UPDATE recojo SET fecha='$fecha',cantidad='$cantidad' WHERE idrecojo= '$idEditar';";
         $resultado_consulta=mysqli_query($conexion,$consulta02);
         
         if($resultado_consulta){

@@ -22,73 +22,118 @@
             border-radius: 8px;
             overflow: hidden;
         }
+        .tabla{
+            width: 100%;
+        }
+        
         th, td {
+            font-size: 13px;
             padding: 12px;
             text-align: center;
             border: 1px solid #ddd;
         }
         th {
+            font-size: 12px;            
+            text-align: center;
             background-color: #74b72e;
             color: white;
         }
         tr:hover {
             background-color: #ddd;
         }
-        #boton-agregar {
-            background-color: #68ca41;
-            text-align: center;
-            color: white;
-            border: none;
-            font-size: 2vh;
-            border-radius: 10px;
-            margin: 20px;
-            padding: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            outline: none;
-        }
-        #boton-agregar:hover {
-            background-color: #003634; 
-            transform: translateY(-3px);
-        }
-        #boton-agregar:active {
-            transform: translateY(2px);
-        } 
+        
     </style>
 </head>
 <body>
 <?php
-    require "3.1 Encabezado.php";
-?>
-<h6 id="titulo">Usuarios</h6>
-<table>
-    <tr>
-        <th>Usuario</th>
-        <th>Opciones</th>
-    </tr>
-    <tr>
-        <td>juanito4534</td>
-        <td>Aceptar | Eliminar</td>
-    </tr>
-    <tr>
-        <td>paola32755</td>
-        <td>Aceptar | Eliminar</td>
-    </tr>
-    <tr>
-        <td>gregoriga32</td>
-        <td>Aceptar | Eliminar</td>
-    </tr>
-    <tr>
-        <td>maria09212</td>
-        <td>Aceptar | Eliminar</td>
-    </tr>
-    <tr>
-        <td>aleatorio99</td>
-        <td>Aceptar | Eliminar</td>
-    </tr>
-</table>
-<button id="boton-agregar">Agregar Usuario</button>
-<?php
+session_start();
+
+require "3.1 Encabezado.php";
+
+echo"<h6 id='titulo'>Usuarios</h6>";
+       include('db.php');
+       
+       //llamar tabla info_usuario
+        $consulta="SELECT *FROM info_usuario;";     
+        $resultado_consulta= mysqli_query($conexion, $consulta);
+        
+        //llamar tabla usuario        
+        $consulta2="SELECT *FROM usuario;";
+        $resultado_consulta2= mysqli_query($conexion, $consulta2);
+
+        //modelo de tabla        
+        echo "<table id='tabla'>";
+        echo "<tr>";
+        echo "<th>ID del usuario</th>";
+        echo "<th>Rol</th>";
+        echo "<th>Estado</th>";
+        echo "<th>User Name</th>";
+        echo "<th>Correo Electronico</th>";
+        echo "<th>Telefono</th>";
+        echo "<th>Direccion</th>";
+        echo "<th>Hukkoins</th>";
+        echo "<th colspan='4'>opciones</th>";
+        echo "</tr>";
+        //
+
+        //while, cliente o admin??
+        While( $registro = mysqli_fetch_array($resultado_consulta)and $registro2= mysqli_fetch_array($resultado_consulta2)){
+
+            if ($registro['rol']==2)
+                {
+                    $rol="Cliente";
+                }
+                if ($registro['rol']==3)
+                {
+                    $rol="Administrador";
+                }
+            echo "<tr>";
+            //
+            echo"<td>".$registro['usuario_idusuario']."</td>";
+            echo"<td>".$rol."</td>";
+            
+            //llamar para ver si esta activo o bloqueado
+            $ci=$registro['usuario_idusuario'];
+            $consultaa="SELECT * FROM info_usuario WHERE usuario_idusuario='$ci'";
+            $result_consulta= mysqli_query($conexion, $consultaa);
+            if ($result_consulta->num_rows > 0) {
+                $info =mysqli_fetch_assoc($result_consulta);
+                $estado=$info["estado"];    
+            }
+
+            if($estado==1) {
+                echo "<td>Activo</td>";         
+            }
+            else{
+                echo "<td>Bloqueado</td>";
+                
+            }
+            //
+            echo"<td>".$registro2['usrname']."</td>";
+            echo"<td>".$registro2['correo_usuario']."</td>";
+            echo"<td>".$registro['telefono']."</td>";
+            echo"<td>".$registro['direccion']."</td>";
+            echo"<td>".$registro['Hukkoins']."</td>";
+            //opciones de admin
+                //verusuario
+            echo"<td><a href='3.3.1 UsuariosVer.php?id=".$registro['usuario_idusuario']."'>Ver usuario</a></td>";
+               //aumentar monedas
+            echo "<td><a href='3.3.3 Usuariospluskoins.php?id=".$registro['usuario_idusuario']."'>Aumentar Monedas</a></td>";
+               //disminuir monedas
+            echo "<td><a href='3.3.3 Usuariosminuskoins.php?id=".$registro['usuario_idusuario']."'>Disminuir Monedas</a></td>";
+            //bloqueo o desbloqueo de usuarios
+            if($estado==1) {
+                echo "<td><a href='3.3.2 UsuarioBloq.php?id=".$registro['usuario_idusuario']."'>Bloquear Usuario</a>&nbsp;";
+            }
+            else{
+                echo "<td><a href='3.3.2 desbloquearUsuario.php?id=".$registro['usuario_idusuario']."'>Desbloquear Usuario</a> &nbsp;";
+            }
+            echo "</tr>";
+                        
+        }
+        echo "</table>";
+
+
     require "3.7 pie de pagina.php";
 ?>
 </body>

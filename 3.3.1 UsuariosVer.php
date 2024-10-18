@@ -128,10 +128,11 @@ $usrname=$_SESSION['usrname'];
     </style>
 </head>
 <body>
-    <?php require "2.1 Encabezado.php";
-    
+    <?php require "3.1 Encabezado.php";
+
+    $registro=$_GET["usuario_idusuario"];
     $sql1 = "SELECT idusuario, correo_usuario FROM usuario WHERE usrname = '$usrname'";
-    $result = $conexion->query($sql1);
+    $result = $conexion->query($registro);
     if ($result->num_rows > 0) {
         $usuario = $result->fetch_assoc();
         $idusuario = $usuario['idusuario'];
@@ -165,8 +166,7 @@ $usrname=$_SESSION['usrname'];
     echo"<p><strong>Correo Electrónico:</strong>  $correo_usuario</p>";
     echo"<p><strong>Contraseña:</strong> ********</p>";
     echo"<p><strong>Hukkoins:</strong> $monedas</p>";
-    echo"<a href='2.2.1 Modperfil.php'><button id='boton'>Editar información</a></button></div>";
-    echo"</section>";
+   echo"</section>";
 
     require "1.6 pie de pagina.php"; ?>
 </body>

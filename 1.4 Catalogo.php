@@ -3,7 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="1.4 Catalogo.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppings', sans-serif;
+  text-decoration: none;
+}
+.H1 {
+  text-align: center;
+  margin: 1%;
+  padding: 1%;
+  font-size: 2.5rem;
+  color: #37704f; 
+  border-top-style: solid;
+}
+#servicios {
+ display: grid;
+ grid-template-columns: 50% 50%;
+ grid-template-rows: 50vh 50vh 50vh;
+}
+.texto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c7b69f;
+  text-align: center;
+  position: relative;
+}
+.descripS {
+  padding: 10vh;
+  font-size: 1.2rem;
+  text-align:justify;
+  text-align-last: center;
+}
+.imagen {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.tituloS,.descripS {
+  position: absolute;
+  transition: opacity 0.5s;
+}
+.descripS {
+  opacity: 0;
+}
+.texto:hover .tituloS {
+  opacity: 0;
+}
+.texto:hover .descripS {
+  opacity: 1;
+}
+#e {
+  padding: 2vh;
+  font-size: 3vh;
+}
+button {
+  background-color: #68ca41;
+  text-align: center;
+  color: white;
+  border: none;
+  font-size: 2vh;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+button:hover {
+  background-color: #003634; 
+  transform: translateY(-3px);
+}
+button:active {
+  transform: translateY(2px);
+} 
+#productos {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: fit-content;
+  justify-content: center;
+}
+.contprod {
+  background-color: #c6da44;
+  border-radius: 15px;
+  margin: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: transform 0.3s;
+}
+.contprod> img {
+  width: auto;
+  height: 150px;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+.producto-info {
+  display: flex;
+  flex-direction: column; 
+}
+
+.contprod:hover {
+  transform: scale(1.05); 
+}
+
+@media (max-width: 768px) {
+#productos {
+  gap: 20px;
+}
+
+.contprod {
+  padding: 20px;
+  width: 90%;
+}
+.descripS {
+  padding: 20px;
+  font-size: 0.9rem;
+}
+.tituloS{
+  font-size: 1.2rem;
+}
+}
+
+    </style>
     <title>Catalogo</title>
 </head>
 <body>
@@ -18,8 +143,8 @@
                 conocimientos y habilidades en compostaje y relacionados.
             </p>
     </div>
-    <img src="capacitacion.png" id="capI" class="imagen">
-    <img src="taller2.jpg" id="talI" class="imagen">
+    <img src="imgen/capacitacion.png" id="capI" class="imagen">
+    <img src="imgen/taller2.jpg" id="talI" class="imagen">
     <div class="texto">
         <h2 id="tal"  class="tituloS">TALLERES</h2>
             <p class="descripS">Enseñamos a convertir los residuos orgánicos en compost y humus de alta calidad 
@@ -37,7 +162,7 @@
             huertos urbanos, y otras iniciativas ecológicas adaptadas a las necesidades locales.
         </p>
     </div>
-    <img src="consulta2.JPG" class="imagen" id="conI">
+    <img src="imgen/consulta2.JPG" class="imagen" id="conI">
 </section>
 <center><h2 id="e">¿Le interesa alguno de nuestros servicios?</h2></center>
 <center><button>¡coticemos!</button></center>
@@ -54,7 +179,7 @@ While($registro = mysqli_fetch_array($resultado_consulta)){
          echo"<img src=".$registro['img_producto'].">";
          echo"<div class='producto-info'>";
            echo"<h3>".$registro['nombre']."</h3>";
-             echo"<p >".$registro['precio']. "&nbspBs. </p>";
+             echo"<p >".$registro['precio']. "&nbspHukkonis. </p>";
              echo"<p >".$registro['cantidad']. "&nbsp Kg. </p>";
          echo"</div>";
      echo"</div>";

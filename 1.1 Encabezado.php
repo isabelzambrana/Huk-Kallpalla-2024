@@ -26,9 +26,9 @@
             align-items: center;
         }
 
-        #logo {
-            font-weight: bold;
-            font-size: 15px; 
+        #logo>img{
+            width: 200px;
+            margin-right: 10px;
         }
 
         #menu {
@@ -109,12 +109,11 @@
 </head>
 <body>
 <header>
-    <div id="contenedor-logo">
+    <a href="1.2 Huk Kallpalla.php" class="enlaces"><div id="contenedor-logo">
         <div id="logo">
-            <h1>Huk Kallpalla</h1>
-            <h2>De vuelta a la tierra</h2>
+        <img src="imgen/logo.png" alt="Logo">
         </div>
-    </div>
+        </div></a>
     <div id="contenedor-menu">
         <input type="checkbox" id="check">
         <label for="check" id="mostrar-menu">&#8801;</label>
@@ -122,6 +121,7 @@
             <div id="enlaces">
                 <a href="1.2 Huk Kallpalla.php" class="enlaces">Inicio</a>
                 <a href="1.3 Nosotros.php" class="enlaces">Acerca de</a>
+                <a href="1.7 Convenios.php" class="enlaces">Convenios</a>
                 <a href="1.4 Catalogo.php" class="enlaces">Servicios y Productos</a>
                 <a href="1.5 Ecocanje.php" class="enlaces">Ecocanje</a>
             </div>

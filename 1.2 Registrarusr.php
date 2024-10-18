@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a2dd6045c4.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <title>Registrarme</title>
 </head>
 <style>
@@ -77,50 +75,6 @@
   height: 60px;
   border-bottom: 2px solid #ffffff;
   margin: 30px 0;
-}
-#ci-error.error{
-  color: #778c43;
-padding-top:100px;
-}
-#direccion-error.error{
-  color: #778c43;
-padding-top:100px;
-}
-#telefono-error.error{
-  color: #778c43;
-padding-top:92px;
-}
-#nombres-error.error{
-  color: #778c43;
-padding-top:92px;
-}
-#ap_p-error.error{
-  color: #778c43;
-padding-top:92px;
-}
-#ap_m-error.error{
-  color: #778c43;
-padding-top:92px;
-}
-#usrname-error.error{
-  color: #778c43;
-padding-top:92px;
-}
-#fecha_n-error.error{
-  color: #778c43;
-padding-top:92px;
-}
-#correo_usuario-error.error{
-  color: #778c43;
-padding-top:92px;
-}
-#contrasenia_usuario-error.error{
-  color: #778c43;
-padding-top:92px;
-}
-#confirmacion-error.error{
-  color: #778c43;
-padding-top:92px;
 }
 
 #contenedor-input label {
@@ -215,7 +169,7 @@ padding-top:92px;
   text-underline-offset: 4px;
 }
 
-
+/* Media Queries */
 @media (max-width: 768px) {
   #fondo {
     width: 90%;
@@ -265,19 +219,22 @@ padding-top:92px;
 ?>
 <section id="ingreso">
   <div id="fondo">
-
+<!--Form registrarse-->
 <div id="contenedor-form" class="registrar"> 
   <h2>Registrarse</h2>
-  <form  method="POST" action="1.1.2 Registrarusr.php">
+  <div id="registrar">
+      <p>¿Tienes una cuenta? <a href="1.2.1 Sesion.php" class="login-link">Iniciar Sesión</a></p> 
+    </div>
+  <form  method="POST" action="1.2.1 Registrarusr.php">
   <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-user"></i></span>
       <input type="text" required name="ci">
-      <label for="number">Carnet de Identidad</label>
+      <label for="username">Carnet de Identidad</label>
     </div>
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-user"></i></span>
-      <input type="text" required name="nombres" >
-      <label for="nombres">Nombre(s)</label>
+      <input type="text" required name="nombres">
+      <label for="username">Nombre(s)</label>
     </div>
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-user"></i></span>
@@ -291,12 +248,12 @@ padding-top:92px;
     </div>  
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-user"></i></span>
-      <input type="text" required name="usrname">
+      <input type="text" required name="usrname"><!--el required name es el nombre con el que se identifica dentro de la plataforma.-->
       <label for="username">Nombre de usuario</label>
     </div>
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-phone"></i></span>
-      <input type="text" required name="telefono" pattern="[0-9]">
+      <input type="tel" required name="telefono" pattern="[0-9]*"><!--el  pattern="[0-9]* es para validar que sea un numero q no pase de los 9 digitos-->
       <label for="number">Teléfono</label> 
     </div>  
     <div id="contenedor-input">
@@ -308,12 +265,12 @@ padding-top:92px;
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-location-pin"></i></span>
       <input type="text" required name="direccion">
-      <label for="direccion">Dirección</label> 
+      <label for="text">Dirección</label> 
     </div>   
     <div id="contenedor-input">
     <span class="icono"><i class="fa-solid fa-calendar"></i></span>
     <input type="date" required name="fecha_n">
-    <label for="fecha_n"></label>
+    <label for="fecha_n">Fecha de Nacimiento</label>
     </div>
     <div id="contenedor-input">
       <span class="icono"><i class="fa-solid fa-lock"></i></span>
@@ -329,9 +286,7 @@ padding-top:92px;
       <label for="#"><input type="checkbox">Acepto los Términos y Condiciones</label>
     </div>
     <button type="submit" class="btn">Registrarme</button>
-    <div id="registrar">
-      <p>¿Tienes una cuenta? <a href="1.2.1 Sesion.php" class="login-link">Iniciar Sesión</a></p> 
-    </div>
+    
     <br><br>
   </form>
 </div>
@@ -353,7 +308,8 @@ padding-top:92px;
     }
 }
 
-        $("form").validate({
+
+$("form").validardatos({
   rules:{
       ci:{
           required:true,
@@ -424,10 +380,7 @@ padding-top:92px;
   usrname:{
       required:"este campo no puede estar vacio."
   },
-  fecha_n:{
-      required:"este campo no puede estar vacio.",
-      number:"Ingrese la fecha como un valor numérico "
-  },
+  
   contrasenia_usuario:{
       required:"este campo no puede estar vacio."
       },
@@ -442,6 +395,13 @@ padding-top:92px;
  )
 
  
+</script>
+</section>
+<?php 
+    require "1.6 pie de pagina.php";
+?>
+</body>
+</html>
 </script>
 </section>
 <?php 

@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+<?php
+
+require "db.php";
+$usrname=$_SESSION['usrname'];
+
+$initial = strtoupper(substr($usrname, 0, 1)); // Extrae la inicial y la convierte a mayúscula
+
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -161,7 +169,7 @@
             <label for="check" id="esconder-menu">&#215;</label>
         </nav>
         <div id="icono">
-            <a href="2.2 perfil.php">A</a> <!-- Cambia "A" por cualquier letra que desees -->
+        <a href="2.2 perfil.php"><?php echo $initial;?></a> <!-- Muestra la inicial del usuario -->
         </div>
     </div>
 </header>
